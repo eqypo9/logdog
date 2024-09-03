@@ -5,7 +5,8 @@ module.exports = {
     extend: {
       // 색상 변수 등록
       colors: {
-        var_blue: '#2b6ca3',
+        'var-blue': '#2b6ca3',
+        'var-gray': '#dddddd',
       },
       transitionDuration: {
         '400': '400ms',
