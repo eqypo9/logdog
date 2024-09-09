@@ -11,7 +11,7 @@ export default function Layout({ children }: Children) {
   return (
     <>
       <Header />
-      <div className='pt-[7rem] flex'>
+      <div className='flex'>
         <SideNav /> 
         <main className='flex-grow'>
           {children}

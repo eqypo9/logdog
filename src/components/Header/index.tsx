@@ -1,8 +1,16 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export function Header() {
+  const router = useRouter();
+  const hideOnPaths = ['/signup', '/signin'];
+
+  if (hideOnPaths.includes(router.pathname)) {
+    return null;
+  }
+
   return (
     <div className='fixed top-0 left-0 w-full h-[7rem] bg-var-blue text-white px-[24rem] border-b border-gray-300 z-50 flex justify-between items-center'>
       <Link href='/'>

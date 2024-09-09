@@ -1,8 +1,15 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 function Footer() {
+  const router = useRouter();
+  const hideOnPaths = ['/signup', '/signin'];
+
+  if (hideOnPaths.includes(router.pathname)) {
+    return null;
+  }
   return (
-    <footer className='w-full bg-var-gray flex justify-center items-center mx-auto py-2 z-10'> 
+    <footer className='w-full bg-var-gray flex justify-center items-center mx-auto py-2 z-10'>
       <div className='flex w-full justify-between mx-[4rem] my-[2.5rem] gap-[4rem]'>
         {/* 이미지 컨테이너 */}
         <div className='relative h-[30rem] w-[45%]'>
