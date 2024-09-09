@@ -10,7 +10,7 @@ interface SearchUIProps {
   isFocus: boolean;
   title: string;
 }
-
+// 검색바 디자인 변경하기
 function SearchUI({ keyword, onChange, onSubmit, isKeyword, isFocus, title }: SearchUIProps) {
   return (
     <div className='mt-[4rem] p-8 md:p-6 shadow-lg rounded-lg bg-var-gray'>

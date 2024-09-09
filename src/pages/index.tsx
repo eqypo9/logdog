@@ -58,6 +58,9 @@ export default function Home() {
 
         <SearchUI keyword={keyword} onChange={handleKeywordChange} onSubmit={handleSubmit} isKeyword={isKeyword} isFocus={isFocus} title={title} />
 
+        {/* 최신글 컨테이너 */}
+        <CustomBanner text={'Latest'} />
+
         {/* 프로젝트 소개 컨테이너 */}
         <div className='relative bg-white mt-[4rem] w-full min-h-[50rem] border border-gray-300 rounded-lg overflow-hidden'>
           {/* 배경 이미지 설정 */}
