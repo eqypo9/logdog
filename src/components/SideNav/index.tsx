@@ -1,8 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-
-// 회원가입과 로그인 페이지에서는 숨기기
 // 아이콘 간격 조정하기
 
 function SideNav() {
@@ -15,7 +13,9 @@ function SideNav() {
   }
 
   return (
-    <div className='fixed top-1/2 left-0 transform -translate-y-1/2 flex flex-col gap-4 items-center mt-8 bg-var-blue rounded-md p-4 border-[0.1rem] border-solid border-black shadow-lg'>
+    <div className='fixed top-1/2 left-0 transform -translate-y-1/2 flex flex-col gap-4 items-center mt-8 bg-var-blue rounded-md p-4 border-[0.1rem] border-solid border-black shadow-lg z-20'>
+      {' '}
+      {/* z-index 추가 */}
       <Link href='https://facebook.com/' target='_blank' rel='noopener noreferrer'>
         <Image src='/icons/facebook.svg' alt='페이스북 로고' width={26} height={26} />
       </Link>
