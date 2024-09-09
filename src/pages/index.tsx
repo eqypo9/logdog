@@ -1,9 +1,24 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import styles from '@/styles/Home.module.css'; 
-import { useEffect, useState } from 'react';
+import styles from '@/styles/Home.module.css';
+import { ChangeEvent, useEffect, useState } from 'react';
+import SearchUI from '@/components/Search';
 
 export default function Home() {
+  const [keyword, setKeyword] = useState('');
+  const [isKeyword, setIsKeyword] = useState(false);
+  const [isFocus, setIsFocus] = useState(false);
+  const [title, setTitle] = useState(''); 
+
+  const handleKeywordChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setKeyword(e.target.value);
+    setIsKeyword(e.target.value.length > 0);
+    setIsFocus(true); 
+  };
+
+  const handleSubmit = () => {
+    console.log('Search submitted with keyword:', keyword);
+  };
   return (
     <>
       <Head>
@@ -26,7 +41,7 @@ export default function Home() {
               <br />
               We hope you find friends here.
             </p>
-            <p className='text-[2rem] text-center'>
+            <p className='text-[2rem] text-center mb-4'>
               'LOGDOG' 은 반려동물을 키우는 반려인을 위한 커뮤니티입니다.
               <br />
               ​초보 반려인부터 고수 반려인까지
@@ -37,6 +52,7 @@ export default function Home() {
             </p>
           </div>
         </div>
+        <SearchUI keyword={keyword} onChange={handleKeywordChange} onSubmit={handleSubmit} isKeyword={isKeyword} isFocus={isFocus} title={title} />
       </div>
     </>
   );
