@@ -6,7 +6,7 @@ function Footer() {
       <div className='flex w-full justify-between mx-[8rem] my-[5rem] gap-[8rem]'>
         {/* 이미지 컨테이너 */}
         <div className='relative h-[60rem] w-[45%]'>
-          <Image src='/images/dog.png' alt='Dog' layout='fill' objectFit='cover' className='rounded-lg' />
+          <Image src='/images/default.png' alt='Dog' layout='fill' objectFit='cover' className='rounded-lg' />
           {/* 불투명한 검정색 배경을 가진 텍스트 컨테이너 */}
           <div className='absolute inset-0 flex justify-center items-center'>
             <div className='bg-black bg-opacity-30 p-12 rounded-lg max-w-[70%] max-h-[60%] text-white'>

@@ -93,7 +93,7 @@ export default function SignupForm({ onSignupSubmit }: SignupFormProps) {
         <div className='flex justify-center pt-6'>
           <span className='text-[1.6rem] font-normal text-primary text-[#4b4b4b]'>
             회원이신가요?
-            <Link className='text-[#0b3b2d] text-[1.6rem] font-normal text-darkgreen underline pl-[0.5rem]' href='/signin'>
+            <Link className='text-var-blue text-[1.6rem] font-normal text-darkgreen underline pl-[0.5rem]' href='/signin'>
               로그인하기
             </Link>
           </span>

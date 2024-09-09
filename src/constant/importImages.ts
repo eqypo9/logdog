@@ -1,8 +1,8 @@
 import IconEyeOn from '../../public/icons/Icon_eye_on.svg';
 import IconEyeOff from '../../public/icons/Icon_eye_off.svg';
 
-import ImageLogo from '../../public/images/test_logo.jpg';
-import ImageLogoSmall from '../../public/images/dog.png';
+import ImageLogo from '../../public/images/default.png';
+import ImageLogoSmall from '../../public/images/default_bg.png';
 
 export const ICON = {
   eye: {
