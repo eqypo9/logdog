@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import './video.module.css';
 @font-face {
   font-family: 'Pretendard';
   font-weight: 100;

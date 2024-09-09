@@ -9,7 +9,7 @@ interface ContentBoxProps {
 
 function ContentBox({ icon, title, text }: ContentBoxProps) {
   return (
-    <div className='my-[4rem] flex-1 w-[300px] h-[400px] bg-gray-200 p-4 rounded-lg shadow-lg flex flex-col items-center justify-center text-center'>
+    <div className='my-[4rem] flex-1 w-[300px] h-[400px] bg-gray-200 bg-opacity-50 p-4 rounded-lg shadow-lg flex flex-col items-center justify-center text-center'>
       <div className='mb-4'>
         <Image src={icon} alt={title} width={50} height={50} />
       </div>

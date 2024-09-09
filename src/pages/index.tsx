@@ -3,6 +3,8 @@ import Image from 'next/image';
 import { ChangeEvent, useState } from 'react';
 import SearchUI from '@/components/Search';
 import ContentBox from '@/components/ContentBox';
+import CustomBanner from '@/components/CustomBanner';
+import VideoSlider from '@/components/VideoSlider';
 
 export default function Home() {
   const [keyword, setKeyword] = useState('');
@@ -85,6 +87,10 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        {/* 튜토리얼 */}
+        <CustomBanner text={'Tutorial'} />
+        <VideoSlider />
       </div>
     </>
   );
