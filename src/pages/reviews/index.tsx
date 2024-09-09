@@ -1,8 +1,10 @@
+// pages/Reviews.tsx
 import React, { useState } from 'react';
 import mockReview from './mockReview';
 import Link from 'next/link';
 import ReviewModal from '@/components/Modal/ReviewModal';
 import ReviewCard from '@/components/ReviewCard';
+import CommonLayout from '@/components/Layout/CommonLayout';
 
 const Reviews: React.FC = () => {
   const [selectedReview, setSelectedReview] = useState<any>(null);
@@ -62,7 +64,7 @@ const Reviews: React.FC = () => {
     });
 
   return (
-    <div className='flex flex-col items-center p-4 bg-gray-100 mt-[7rem]'>
+    <CommonLayout>
       <h1 className='text-3xl font-bold mt-[4rem] mb-4'>리뷰 페이지</h1>
 
       <Link href='/write-review' passHref>
@@ -122,7 +124,7 @@ const Reviews: React.FC = () => {
           review={selectedReview}
         />
       )}
-    </div>
+    </CommonLayout>
   );
 }
 
