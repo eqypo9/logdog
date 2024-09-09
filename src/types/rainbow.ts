@@ -14,3 +14,9 @@ export interface TributePost {
   comments: Comment[];
   likes: number;
 }
+
+export interface Photo {
+  id: string;
+  url: string;
+  description: string;
+}
