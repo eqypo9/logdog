@@ -14,6 +14,8 @@ const Reviews: React.FC = () => {
       return acc;
     }, {} as Record<string, number>)
   );
+  const [sortCriteria, setSortCriteria] = useState<string>('popularity');
+  const [categoryFilter, setCategoryFilter] = useState<string>('all');
 
   const handleReviewClick = (review: any) => {
     setSelectedReview(review);
@@ -43,6 +45,22 @@ const Reviews: React.FC = () => {
     });
   };
 
+  const filteredReviews = mockReview.filter(review => 
+    categoryFilter === 'all' || review.category === categoryFilter
+  );
+
+  const sortedReviews = filteredReviews
+    .sort((a, b) => {
+      switch (sortCriteria) {
+        case 'popularity':
+          return (reviewLikes[b._id] || 0) - (reviewLikes[a._id] || 0);
+        case 'latest':
+          return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+        default:
+          return 0;
+      }
+    });
+
   return (
     <div className='flex flex-col items-center p-4 bg-gray-100 mt-[7rem]'>
       <h1 className='text-3xl font-bold mt-[4rem] mb-4'>리뷰 페이지</h1>
@@ -55,9 +73,33 @@ const Reviews: React.FC = () => {
 
       <div className='w-full max-w-7xl mt-8'>
         <h2 className='text-2xl font-semibold mb-4'>리뷰 목록</h2>
-        {mockReview.length > 0 ? (
+
+        <div className='mb-4'>
+          <label className='mr-2'>정렬 기준:</label>
+          <select
+            value={sortCriteria}
+            onChange={(e) => setSortCriteria(e.target.value)}
+            className='p-2 border rounded'
+          >
+            <option value='popularity'>인기순</option>
+            <option value='latest'>최신순</option>
+          </select>
+
+          <label className='ml-4 mr-2'>카테고리:</label>
+          <select
+            value={categoryFilter}
+            onChange={(e) => setCategoryFilter(e.target.value)}
+            className='p-2 border rounded'
+          >
+            <option value='all'>모두</option>
+            <option value='사료'>사료</option>
+            <option value='장난감'>장난감</option>
+          </select>
+        </div>
+
+        {sortedReviews.length > 0 ? (
           <div className='flex flex-wrap gap-4'>
-            {mockReview.map((review) => (
+            {sortedReviews.map((review) => (
               <ReviewCard
                 key={review._id}
                 review={review}
