@@ -1,6 +1,6 @@
-import Button from '@/components/Button';
+import Button from '@/components/CustomButton';
 import { Input } from '@/components/Input';
-import Layout from '@/components/Layout'; 
+import Layout from '@/components/Layout';
 
 function Index() {
   return (

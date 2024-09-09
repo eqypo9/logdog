@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import SearchButton from '../Button';
+import SearchButton from '../CustomButton';
 
 interface SearchUIProps {
   keyword: string;
@@ -18,19 +18,9 @@ function SearchUI({ keyword, onChange, onSubmit, isKeyword, isFocus, title }: Se
       <div className='flex flex-col relative'>
         <form onSubmit={onSubmit} className={`flex items-center justify-center w-full gap-3 relative ${isKeyword ? 'active' : ''}`}>
           <div className='relative w-full'>
-            <input
-              className="text-lg font-normal text-[#1b1b1b] w-full p-6 pl-[4.8rem] border border-[#79747e] rounded-md bg-white"
-              type='search'
-              onChange={onChange}
-              value={keyword}
-            />
+            <input className='text-lg font-normal text-[#1b1b1b] w-full p-6 pl-[4.8rem] border border-[#79747e] rounded-md bg-white' type='search' onChange={onChange} value={keyword} />
             <div className='absolute inset-y-0 left-0 flex items-center pl-5'>
-              <Image
-                src='/images/pawprint.png'
-                alt='Paw Print'
-                width={24} 
-                height={24} 
-              />
+              <Image src='/images/pawprint.png' alt='Paw Print' width={24} height={24} />
             </div>
           </div>
           <div className='flex items-center justify-center w-[13.6rem]'>

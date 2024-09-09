@@ -1,24 +1,25 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import styles from '@/styles/Home.module.css';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import SearchUI from '@/components/Search';
+import ContentBox from '@/components/ContentBox';
 
 export default function Home() {
   const [keyword, setKeyword] = useState('');
   const [isKeyword, setIsKeyword] = useState(false);
   const [isFocus, setIsFocus] = useState(false);
-  const [title, setTitle] = useState(''); 
+  const [title, setTitle] = useState('');
 
   const handleKeywordChange = (e: ChangeEvent<HTMLInputElement>) => {
     setKeyword(e.target.value);
     setIsKeyword(e.target.value.length > 0);
-    setIsFocus(true); 
+    setIsFocus(true);
   };
 
   const handleSubmit = () => {
     console.log('Search submitted with keyword:', keyword);
   };
+
   return (
     <>
       <Head>
@@ -52,7 +53,38 @@ export default function Home() {
             </p>
           </div>
         </div>
+
         <SearchUI keyword={keyword} onChange={handleKeywordChange} onSubmit={handleSubmit} isKeyword={isKeyword} isFocus={isFocus} title={title} />
+
+        {/* 프로젝트 소개 컨테이너 */}
+        <div className='relative bg-white mt-[4rem] w-full min-h-[50rem] border border-gray-300 rounded-lg overflow-hidden'>
+          {/* 배경 이미지 설정 */}
+          <div className='absolute inset-0 bg-[url(/images/home_side.png)] bg-cover bg-center bg-fixed' />
+
+          {/* 다른 요소들 위에 배치 */}
+          <div className='relative z-10 flex flex-col items-center justify-center w-full h-full p-4'>
+            <h1 className='text-white text-[3rem] font-bold my-4'>Our Service</h1>
+
+            {/* 세 개의 박스를 가로로 정렬 */}
+            <div className='flex gap-4 w-full max-w-screen-lg'>
+              <ContentBox
+                icon='/icons/twitter.svg'
+                title='Self Customizing'
+                text='강아지 종류와 털 색 변경 등의 커스터마이징으로 하나뿐인 아바타를 만들 수 있습니다. 캡쳐하기 버튼을 통해서 강아지를 사진으로 간직해보세요!'
+              />
+              <ContentBox
+                icon='/icons/youtube.svg'
+                title='Multi Play'
+                text='강아지를 움직이면서 다른 사용자들과 채팅을 할 수 있습니다. 음성 채팅을 통한 상호작용 또한 가능하니 광장을 돌아다니면서 대화를 시작해보세요!'
+              />
+              <ContentBox
+                icon='/icons/instagram.svg'
+                title='Mini Game'
+                text='​방향키 조작으로 미니 게임을 할 수 있습니다. 시간에 따라 속도가 빨라지므로 장애물을 피해서 최대한 오래 살아남으세요! 생존 시간에 따라 뼈다귀를 얻을 수 있습니다.'
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
